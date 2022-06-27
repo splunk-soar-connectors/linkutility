@@ -16,6 +16,11 @@
     "logo": "link.svg",
     "logo_dark": "link.svg",
     "license": "Copyright (c) Mhike, 2022",
+    "contributors": [
+      {
+        "name": "Mhike"
+      }
+    ],
     "configuration": {
         "https_port": {
             "description": "Splunk SOAR HTTPS port if your instance uses one other than 443",
