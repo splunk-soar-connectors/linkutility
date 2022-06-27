@@ -25,7 +25,7 @@ class LinkConnector(phantom.BaseConnector):
             return
         else:
             self.save_progress(message)
-            
+
     def _get_previous_links(self):
         self.__print('_get_previous_links()', True)
         current_links = []
