@@ -3,7 +3,7 @@
     "name": "Link",
     "description": "Generates a widget with clickable links",
     "publisher": "Mhike",
-    "type": "generic",
+    "type": "devops",
     "main_module": "link_connector.py",
     "app_version": "1.0.0",
     "utctime_updated": "2022-06-12T14:23:35.606945Z",
@@ -42,7 +42,7 @@
             "action": "add link",
             "description": "Generate a widget with clickable links",
             "verbose:" "Adds the specified links with the descriptor as the link text. Links are added to the existing link widget if one exists, otherwise a new widget will be generated.",
-            "type": "generic",
+            "type": "devops",
             "identifier": "add_link",
             "read_only": false,
             "parameters": {
