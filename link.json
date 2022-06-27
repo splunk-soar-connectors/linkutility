@@ -26,8 +26,6 @@
             "description": "Splunk SOAR HTTPS port if your instance uses one other than 443",
             "data_type": "string",
             "required": false,
-            "value_list": [],
-            "default": "",
             "order": 0,
             "name": "https_port",
             "id": 0
@@ -46,7 +44,7 @@
         {
             "action": "add link",
             "description": "Generate a widget with clickable links",
-            "verbose:" "Adds the specified links with the descriptor as the link text. Links are added to the existing link widget if one exists, otherwise a new widget will be generated.",
+            "verbose": "Adds the specified links with the descriptor as the link text. Links are added to the existing link widget if one exists, otherwise a new widget will be generated.",
             "type": "generic",
             "identifier": "add_link",
             "read_only": false,
@@ -157,16 +155,13 @@
             "action": "test connectivity",
             "identifier": "test_connectivity",
             "description": "Test connectivity to local phantom instance",
-            "verbose": "",
             "type": "test",
             "read_only": false,
             "parameters": {},
             "output": [
                 {
                     "data_path": "action_result.status",
-                    "data_type": "string",
-                    "column_name": "status",
-                    "column_order": 0
+                    "data_type": "string"
                 },
                 {
                     "data_path": "action_result.message",
