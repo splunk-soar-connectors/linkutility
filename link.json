@@ -14,7 +14,7 @@
     "min_phantom_version": "4.9.0",
     "python_version": "3",
     "logo": "link.svg",
-    "logo_dark": "link.svg",
+    "logo_dark": "link_dark.svg",
     "license": "Copyright (c) Mhike, 2022",
     "contributors": [
       {
