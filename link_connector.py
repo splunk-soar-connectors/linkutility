@@ -111,6 +111,7 @@ class LinkConnector(phantom.BaseConnector):
                 processed_links = self._sort_links(processed_links)
             action_result.add_data({'linkset': processed_links})
             self.__print('Successfully processed links', False)
+            self.debug_print("Successfully processed links")
             action_result.set_status(phantom.APP_SUCCESS, 'Successfully processed links')
             return action_result.get_status()
         else:
