@@ -38,12 +38,12 @@ class LinkConnector(phantom.BaseConnector):
                          '&page_size=1'
                          '&include_expensive').format(self._get_base_url(), self.get_container_id())
             self.__print(query_url, True)
-            response = phantom.requests.get(query_url, verify=False)
+            response = phantom.requests.get(query_url, verify=False, timeout=30)
             self.__print(response.status_code, True)
             action_id = json.loads(response.text)['data'][0]['id']
             results_url = '{0}/rest/action_run/{1}/app_runs?include_expensive'.format(self._get_base_url(), action_id)
             self.__print(results_url, True)
-            response = phantom.requests.get(results_url, verify=False)
+            response = phantom.requests.get(results_url, verify=False, timeout=30)
             self.__print(response.status_code, True)
             self.__print(json.loads(response.text)['data'][0]['result_data'][0]['data'][0]['linkset'], True)
             links = json.loads(response.text)['data'][0]['result_data'][0]['data'][0]['linkset']
@@ -71,6 +71,7 @@ class LinkConnector(phantom.BaseConnector):
         return sorted_links
 
     def _handle_add_link(self, param):
+        self.debug_print("In action handler for: {0}".format(self.get_action_identifier()))
         self.__print('_link()', True)
         self.__print('Single URL: {}'.format(param.get('url')), True)
         self.__print('Single Description: {}'.format(param.get('description')), True)
@@ -113,6 +114,7 @@ class LinkConnector(phantom.BaseConnector):
             action_result.set_status(phantom.APP_SUCCESS, 'Successfully processed links')
             return action_result.get_status()
         else:
+            self.debug_print("Failed to process any links from the input")
             self.__print('Failed to process any links from the input', False)
             action_result.set_status(phantom.APP_ERROR, 'Failed to process any links from the input')
             return action_result.get_status()
@@ -128,23 +130,24 @@ class LinkConnector(phantom.BaseConnector):
 
     def _handle_test_connectivity(self, param):
         self.__print("_handle_test_connectivity", True)
+        self.save_progress("Connecting to endpoint")
         action_result = self.add_action_result(ActionResult(dict(param)))
         test_url = f'{self._get_base_url()}/rest/version'
         self.__print(f'Attempting http get for {test_url}', False)
         response = None
         try:
-            response = phantom.requests.get(test_url, verify=False)
+            response = phantom.requests.get(test_url, verify=False, timeout=30)
             self.__print(response.status_code, True)
         except:
             pass
         if response and 199 < response.status_code < 300:
             version = json.loads(response.text)['version']
             self.__print(f'Successfully retrieved platform version: {version}', False)
-            self.__print('Passed connection test', False)
+            self.save_progress("Test Connectivity Passed.")
             return action_result.set_status(phantom.APP_SUCCESS)
         else:
             self.__print(f'Failed to reach test url: {test_url}\nCheck your hostname config value', False)
-            self.__print('Failed connection test', False)
+            self.save_progress("Test Connectivity Failed.")
             return action_result.set_status(phantom.APP_ERROR, f'Failed to reach test url {test_url}')
 
     def handle_action(self, param):
