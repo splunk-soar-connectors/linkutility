@@ -14,12 +14,14 @@ class LinkConnector(phantom.BaseConnector):
         print_debug = False
         try:
             print_debug = self.get_config()['debug']
-        except:
+        except Exception as e:
+            self.debug_print("Exception occurred while getting debug key. Exception: {}".format(e))
             pass
         message = 'Failed to cast message to string'
         try:
             message = str(value)
-        except:
+        except Exception as e:
+            self.debug_print("Exception occurred while converting message into string. Exception: {}".format(e))
             pass
         if is_debug and not print_debug:
             return
@@ -80,7 +82,8 @@ class LinkConnector(phantom.BaseConnector):
         sorting = False
         try:
             sorting = param.get('sort')
-        except:
+        except Exception as e:
+            self.debug_print("Exception occured while getting sort key. Exception: {}".format(e))
             pass
         processed_links = []
         single_url = param.get('url')
@@ -125,7 +128,8 @@ class LinkConnector(phantom.BaseConnector):
         port = 443
         try:
             port = self.get_config()['https_port']
-        except:
+        except Exception as e:
+            self.debug_print("Exception occured while get https_port key. Exception: {}".format(e))
             pass
         return f'https://127.0.0.1:{port}'
 
@@ -139,7 +143,8 @@ class LinkConnector(phantom.BaseConnector):
         try:
             response = phantom.requests.get(test_url, verify=False, timeout=30)
             self.__print(response.status_code, True)
-        except:
+        except Exception as e:
+            self.debug_print("Exception occured while rest call. Exception: {}".format(e))
             pass
         if response and 199 < response.status_code < 300:
             version = json.loads(response.text)['version']
