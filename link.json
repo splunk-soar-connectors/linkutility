@@ -50,7 +50,7 @@
                 "url": {
                     "data_type": "string",
                     "order": 0,
-                    "description": "URL to be added, requires the description field",
+                    "description": "URL to be added as link, requires the description field",
                     "name": "url",
                     "id": 1,
                     "param_name": "url"
@@ -58,7 +58,7 @@
                 "description": {
                     "data_type": "string",
                     "order": 1,
-                    "description": "Description to be added, requires the url field",
+                    "description": "Description to be added as link text, requires the url field",
                     "name": "description",
                     "id": 2,
                     "param_name": "description"
@@ -156,9 +156,9 @@
         {
             "action": "test connectivity",
             "identifier": "test_connectivity",
-            "description": "Test connectivity to local phantom instance",
+            "description": "Test connectivity to local SOAR instance",
             "type": "test",
-            "read_only": false,
+            "read_only": true,
             "parameters": {},
             "output": [
                 {
