@@ -5,7 +5,7 @@
     "publisher": "Mhike",
     "type": "devops",
     "main_module": "link_connector.py",
-    "app_version": "1.0.2",
+    "app_version": "1.0.3",
     "utctime_updated": "2022-06-12T14:23:35.606945Z",
     "package_name": "phantom_link",
     "product_vendor": "Mhike",
