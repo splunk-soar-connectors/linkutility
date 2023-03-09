@@ -21,16 +21,16 @@ from phantom.action_result import ActionResult
 class LinkConnector(phantom.BaseConnector):
 
     print_debug = None
-    
+
     def __init__(self):
         super(LinkConnector, self).__init__()
         return
 
     def __print(self, value, is_debug=False):
-        if self.print_debug == None:
+        if self.print_debug is None:
             self.print_debug = False
             try:
-                print_debug = self.get_config()['debug']
+                self.print_debug = self.get_config()['debug']
             except Exception as e:
                 self.debug_print("Exception occurred while getting debug key. Exception: {}".format(e))
         message = 'Failed to cast message to string'
@@ -43,7 +43,7 @@ class LinkConnector(phantom.BaseConnector):
             return
         else:
             self.save_progress(message)
-    
+
     def _get_headers(self):
         self.__print('_get_headers()', is_debug=True)
         try:
