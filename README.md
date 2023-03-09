@@ -2,7 +2,7 @@
 # Link
 
 Publisher: Mhike  
-Connector Version: 1\.0\.1  
+Connector Version: 1\.1\.0  
 Product Vendor: Mhike  
 Product Name: Link  
 Product Version Supported (regex): "\.\*"  
@@ -66,13 +66,14 @@ The below configuration variables are required for this Connector to operate.  T
 VARIABLE | REQUIRED | TYPE | DESCRIPTION
 -------- | -------- | ---- | -----------
 **https\_port** |  optional  | string | Splunk SOAR HTTPS port if your instance uses one other than 443
+**auth\_token** |  optional  | string | Splunk SOAR auth token if your instance requires auth for internal 127\.0\.0\.1 calls
 **debug** |  optional  | boolean | Print debugging statements to log
 
 ### Supported Actions  
-[add url](#action-add-url) - Generate a widget with clickable links  
+[add link](#action-add-link) - Generate a widget with clickable links  
 [test connectivity](#action-test-connectivity) - Test connectivity to local SOAR instance  
 
-## action: 'add url'
+## action: 'add link'
 Generate a widget with clickable links
 
 Type: **generic**  
@@ -90,19 +91,19 @@ PARAMETER | REQUIRED | DESCRIPTION | TYPE | CONTAINS
 **sort** |  optional  | Sort links alphabetically | boolean | 
 
 #### Action Output
-DATA PATH | TYPE | CONTAINS
---------- | ---- | --------
-action\_result\.status | string | 
-action\_result\.parameter\.append | string | 
-action\_result\.parameter\.description | string | 
-action\_result\.parameter\.linkset | string | 
-action\_result\.parameter\.sort | string | 
-action\_result\.parameter\.url | string | 
-action\_result\.data\.\*\.linkset | string | 
-action\_result\.summary | string | 
-action\_result\.message | string | 
-summary\.total\_objects | numeric | 
-summary\.total\_objects\_successful | numeric |   
+DATA PATH | TYPE | CONTAINS | EXAMPLE VALUES
+--------- | ---- | -------- | --------------
+action\_result\.status | string |  |   success  failed 
+action\_result\.parameter\.append | string |  |  
+action\_result\.parameter\.description | string |  |  
+action\_result\.parameter\.linkset | string |  |  
+action\_result\.parameter\.sort | string |  |  
+action\_result\.parameter\.url | string |  |  
+action\_result\.data\.\*\.linkset | string |  |  
+action\_result\.summary | string |  |  
+action\_result\.message | string |  |  
+summary\.total\_objects | numeric |  |  
+summary\.total\_objects\_successful | numeric |  |    
 
 ## action: 'test connectivity'
 Test connectivity to local SOAR instance
@@ -114,9 +115,9 @@ Read only: **True**
 No parameters are required for this action
 
 #### Action Output
-DATA PATH | TYPE | CONTAINS
---------- | ---- | --------
-action\_result\.status | string | 
-action\_result\.message | string | 
-summary\.total\_objects | numeric | 
-summary\.total\_objects\_successful | numeric | 
+DATA PATH | TYPE | CONTAINS | EXAMPLE VALUES
+--------- | ---- | -------- | --------------
+action\_result\.status | string |  |   success  failed 
+action\_result\.message | string |  |  
+summary\.total\_objects | numeric |  |  
+summary\.total\_objects\_successful | numeric |  |  
