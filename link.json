@@ -29,13 +29,20 @@
             "name": "https_port",
             "id": 0
         },
+        "auth_token": {
+            "description": "Splunk SOAR auth token if your instance requires auth for internal 127.0.0.1 calls",
+            "data_type": "string",
+            "order": 1,
+            "name": "auth_token",
+            "id": 1
+        },
         "debug": {
             "description": "Print debugging statements to log",
             "data_type": "boolean",
             "default": false,
-            "order": 1,
+            "order": 2,
             "name": "debug",
-            "id": 1
+            "id": 2
         }
     },
     "actions": [
