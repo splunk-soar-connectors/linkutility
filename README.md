@@ -2,7 +2,7 @@
 # Link
 
 Publisher: Mhike  
-Connector Version: 1\.0\.2  
+Connector Version: 1\.1\.0  
 Product Vendor: Mhike  
 Product Name: Link  
 Product Version Supported (regex): "\.\*"  
