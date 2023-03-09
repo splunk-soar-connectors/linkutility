@@ -47,7 +47,7 @@
     },
     "actions": [
         {
-            "action": "add url",
+            "action": "add link",
             "description": "Generate a widget with clickable links",
             "verbose": "Adds the specified links with the descriptor as the link text. Links are added to the existing link widget if one exists, otherwise a new widget will be generated.",
             "type": "generic",
