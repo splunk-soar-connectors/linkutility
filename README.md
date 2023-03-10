@@ -66,7 +66,7 @@ The below configuration variables are required for this Connector to operate.  T
 VARIABLE | REQUIRED | TYPE | DESCRIPTION
 -------- | -------- | ---- | -----------
 **https\_port** |  optional  | string | Splunk SOAR HTTPS port if your instance uses one other than 443
-**auth\_token** |  optional  | string | Splunk SOAR auth token if your instance requires auth for internal 127\.0\.0\.1 calls
+**auth\_token** |  optional  | password | Splunk SOAR auth token if your instance requires auth for internal 127\.0\.0\.1 calls
 **debug** |  optional  | boolean | Print debugging statements to log
 
 ### Supported Actions  
