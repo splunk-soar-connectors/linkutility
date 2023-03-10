@@ -5,8 +5,8 @@
     "publisher": "Mhike",
     "type": "devops",
     "main_module": "link_connector.py",
-    "app_version": "1.1.0",
-    "utctime_updated": "2023-03-09T14:03:35.000000Z",
+    "app_version": "1.1.1",
+    "utctime_updated": "2023-03-10T14:03:35.000000Z",
     "package_name": "phantom_link",
     "product_vendor": "Mhike",
     "product_name": "Link",
@@ -31,7 +31,7 @@
         },
         "auth_token": {
             "description": "Splunk SOAR auth token if your instance requires auth for internal 127.0.0.1 calls",
-            "data_type": "string",
+            "data_type": "password",
             "order": 1,
             "name": "auth_token",
             "id": 1
