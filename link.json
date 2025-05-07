@@ -184,11 +184,5 @@
             ],
             "versions": "EQ(*)"
         }
-    ],
-    "directory": "link_c5a92c45-8c3e-417b-be46-01e8d7c677a6",
-    "version": 1,
-    "appname": "-",
-    "executable": "spawn3",
-    "disabled": false,
-    "custom_made": true
+    ]
 }
