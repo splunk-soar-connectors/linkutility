@@ -54,7 +54,6 @@ This table lists the configuration variables required to operate Link. These var
 
 VARIABLE | REQUIRED | TYPE | DESCRIPTION
 -------- | -------- | ---- | -----------
-**https_port** | optional | string | Splunk SOAR HTTPS port if your instance uses one other than 443 |
 **auth_token** | optional | password | Splunk SOAR auth token if your instance requires auth for internal 127.0.0.1 calls |
 **debug** | optional | boolean | Print debugging statements to log |
 

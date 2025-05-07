@@ -22,27 +22,20 @@
         }
     ],
     "configuration": {
-        "https_port": {
-            "description": "Splunk SOAR HTTPS port if your instance uses one other than 443",
-            "data_type": "string",
-            "order": 0,
-            "name": "https_port",
-            "id": 0
-        },
         "auth_token": {
             "description": "Splunk SOAR auth token if your instance requires auth for internal 127.0.0.1 calls",
             "data_type": "password",
-            "order": 1,
+            "order": 0,
             "name": "auth_token",
-            "id": 1
+            "id": 0
         },
         "debug": {
             "description": "Print debugging statements to log",
             "data_type": "boolean",
             "default": false,
-            "order": 2,
+            "order": 1,
             "name": "debug",
-            "id": 2
+            "id": 1
         }
     },
     "actions": [

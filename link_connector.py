@@ -13,8 +13,10 @@
 # either express or implied. See the License for the specific language governing permissions
 # and limitations under the License.
 import json
+import urllib.parse
 
 import phantom.app as phantom
+import phantom.rules as phrules
 from phantom.action_result import ActionResult
 
 
@@ -156,13 +158,9 @@ class LinkConnector(phantom.BaseConnector):
 
     def _get_base_url(self):
         self.__print("_get_base_url()", is_debug=True)
-        port = 443
-        try:
-            port = self.get_config()["https_port"]
-        except Exception as e:
-            self.debug_print(f"Exception occured while get https_port key. Exception: {e}")
-            pass
-        return f"https://127.0.0.1:{port}"
+        rest_url = phrules.build_phantom_rest_url()
+        scheme, netloc, _, _, _ = urllib.parse.urlsplit(rest_url)
+        return urllib.parse.urlunsplit((scheme, netloc, '', '', ''))
 
     def _handle_test_connectivity(self, param):
         self.__print("_handle_test_connectivity", is_debug=True)
