@@ -156,13 +156,7 @@ class LinkConnector(phantom.BaseConnector):
 
     def _get_base_url(self):
         self.__print("_get_base_url()", is_debug=True)
-        port = 443
-        try:
-            port = self.get_config()["https_port"]
-        except Exception as e:
-            self.debug_print(f"Exception occured while get https_port key. Exception: {e}")
-            pass
-        return f"https://127.0.0.1:{port}"
+        return self.get_phantom_base_url()
 
     def _handle_test_connectivity(self, param):
         self.__print("_handle_test_connectivity", is_debug=True)
