@@ -13,6 +13,7 @@
 # either express or implied. See the License for the specific language governing permissions
 # and limitations under the License.
 import json
+from urllib.parse import urlparse
 
 import phantom.app as phantom
 from phantom.action_result import ActionResult
@@ -131,6 +132,9 @@ class LinkConnector(phantom.BaseConnector):
             self.__print(link_set, is_debug=True)
             try:
                 if "descriptor" in link_set and "url" in link_set and link_set["descriptor"] and link_set["url"]:
+                    parsed_url = urlparse(str(link_set["url"]))
+                    if parsed_url.scheme.lower() not in {"http", "https"} or not parsed_url.netloc:
+                        return action_result.set_status(phantom.APP_ERROR, "Link URLs must be absolute HTTP or HTTPS URLs")
                     processed_links.append(link_set)
             except:
                 self.__print(f"Missing or null values in link: {link_set}")

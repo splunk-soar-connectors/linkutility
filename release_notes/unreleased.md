@@ -1,2 +1,3 @@
 **Unreleased**
 Restore normal template autoescaping for Link Utility widget destinations and descriptions (PSAAS-30830).
+Require Link Utility destinations to be absolute HTTP or HTTPS URLs before storing them in action results (PSAAS-31330).
