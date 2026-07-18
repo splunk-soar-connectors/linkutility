@@ -28,13 +28,11 @@
       <!-- loop for each result -->
       {% if result.data.linkset %}
         {% for linkcontent in result.data.linkset %}
-          {% autoescape off %}
-            <a style="text-decoration: underline;
-                      font-size: medium"
-               target="_blank"
-               href="{{ linkcontent.url }}">{{ linkcontent.descriptor }}</a>
-            <hr />
-          {% endautoescape %}
+          <a style="text-decoration: underline;
+                    font-size: medium"
+             target="_blank"
+             href="{{ linkcontent.url }}">{{ linkcontent.descriptor }}</a>
+          <hr />
         {% endfor %}
       {% endif %}
     {% endfor %}
