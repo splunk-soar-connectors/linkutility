@@ -15,7 +15,7 @@
     "python_version": "3",
     "logo": "logo_link.svg",
     "logo_dark": "logo_link_dark.svg",
-    "license": "Copyright (c) Mhike, 2022-2025",
+    "license": "Copyright (c) Mhike, 2022-2026",
     "contributors": [
         {
             "name": "Mhike"
@@ -184,5 +184,11 @@
             ],
             "versions": "EQ(*)"
         }
-    ]
+    ],
+    "pip39_dependencies": {
+        "wheel": []
+    },
+    "pip313_dependencies": {
+        "wheel": []
+    }
 }

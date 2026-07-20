@@ -1,9 +1,9 @@
 # Link
 
-Publisher: Mhike \
-Connector Version: 1.1.2 \
-Product Vendor: Mhike \
-Product Name: Link \
+Publisher: Mhike <br>
+Connector Version: 1.1.2 <br>
+Product Vendor: Mhike <br>
+Product Name: Link <br>
 Minimum Product Version: 4.9.0
 
 Generates a widget with clickable links
@@ -59,14 +59,14 @@ VARIABLE | REQUIRED | TYPE | DESCRIPTION
 
 ### Supported Actions
 
-[add link](#action-add-link) - Generate a widget with clickable links \
+[add link](#action-add-link) - Generate a widget with clickable links <br>
 [test connectivity](#action-test-connectivity) - Test connectivity to local SOAR instance
 
 ## action: 'add link'
 
 Generate a widget with clickable links
 
-Type: **generic** \
+Type: **generic** <br>
 Read only: **False**
 
 Adds the specified links with the descriptor as the link text. Links are added to the existing link widget if one exists, otherwise a new widget will be generated.
@@ -101,7 +101,7 @@ summary.total_objects_successful | numeric | | |
 
 Test connectivity to local SOAR instance
 
-Type: **test** \
+Type: **test** <br>
 Read only: **True**
 
 #### Action Parameters
@@ -121,7 +121,7 @@ ______________________________________________________________________
 
 Auto-generated Splunk SOAR Connector documentation.
 
-Copyright 2025 Splunk Inc.
+Copyright 2026 Splunk Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
