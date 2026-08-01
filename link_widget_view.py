@@ -12,6 +12,15 @@
 # the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
 # either express or implied. See the License for the specific language governing permissions
 # and limitations under the License.
+from urllib.parse import urlparse
+
+
+def _is_safe_rendered_link(url):
+    """Allow only absolute HTTP(S) links in the rendered widget."""
+    parsed = urlparse(str(url).strip())
+    return parsed.scheme.lower() in {"http", "https"} and bool(parsed.netloc)
+
+
 def get_result(provides, result):
     """Function that parses data.
     :param result: result
@@ -36,7 +45,11 @@ def get_result(provides, result):
         example_result["summary"] = summary
 
     if data:
-        example_result["data"] = data[0]
+        rendered_data = dict(data[0])
+        linkset = rendered_data.get("linkset")
+        if isinstance(linkset, list):
+            rendered_data["linkset"] = [link for link in linkset if isinstance(link, dict) and _is_safe_rendered_link(link.get("url", ""))]
+        example_result["data"] = rendered_data
 
     return example_result
 
