@@ -104,6 +104,15 @@ class LinkConnector(phantom.BaseConnector):
                     break
         return sorted_links
 
+    @staticmethod
+    def _is_valid_link(link):
+        try:
+            parsed_url = urlparse(str(link["url"]))
+        except (KeyError, TypeError, ValueError):
+            return False
+
+        return bool(link.get("descriptor") and parsed_url.scheme.lower() in {"http", "https"} and parsed_url.netloc)
+
     def _handle_add_link(self, param):
         self.debug_print(f"In action handler for: {self.get_action_identifier()}")
         self.__print("_link()", is_debug=True)
@@ -132,8 +141,7 @@ class LinkConnector(phantom.BaseConnector):
             self.__print(link_set, is_debug=True)
             try:
                 if "descriptor" in link_set and "url" in link_set and link_set["descriptor"] and link_set["url"]:
-                    parsed_url = urlparse(str(link_set["url"]))
-                    if parsed_url.scheme.lower() not in {"http", "https"} or not parsed_url.netloc:
+                    if not self._is_valid_link(link_set):
                         return action_result.set_status(phantom.APP_ERROR, "Link URLs must be absolute HTTP or HTTPS URLs")
                     processed_links.append(link_set)
             except:
@@ -143,7 +151,7 @@ class LinkConnector(phantom.BaseConnector):
                 current_links = self._get_previous_links()
                 new_descriptors = [link["descriptor"] for link in processed_links]
                 for linkset in current_links:
-                    if linkset["descriptor"] not in new_descriptors:
+                    if self._is_valid_link(linkset) and linkset["descriptor"] not in new_descriptors:
                         processed_links.append(linkset)
             if sorting:
                 processed_links = self._sort_links(processed_links)
