@@ -1,7 +1,7 @@
 # Link
 
 Publisher: Mhike <br>
-Connector Version: 1.1.3 <br>
+Connector Version: 1.1.4 <br>
 Product Vendor: Mhike <br>
 Product Name: Link <br>
 Minimum Product Version: 4.9.0
